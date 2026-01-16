@@ -1,198 +1,339 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edgar | Desarrollador de Software</title>
-  <meta name="description" content="Página personal de Edgar: desarrollador de software, docente en Tecmilenio, y creador de soluciones web." />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Nexora Labs</title>
 </head>
-
 <body>
-  <a href="#contenido">Saltar al contenido principal</a>
 
-  <header>
-    <h1>Edgar</h1>
-    <p>Desarrollador de Software • Docente • Constructor de soluciones web</p>
+  
+    <a class="skip__link" href="#content">Saltar al contenido</a>
+  
 
-    <nav aria-label="Navegación principal">
-      <ul>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#docencia">Docencia</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+  <header class="topbar">
+    <div class="container">
+      <brand class="brand">
+        <span class="brand__logo">NX</span>
+        <div class="brand__text">
+          <span class="brand__name">Nexora Labs</span>
+          <span class="brand__tag">Software para equipos modernos</span>
+        </div>
+      </brand>
+
+      <nav class="nav">
+        <span class="nav__item"><a href="#home">Inicio</a></span>
+        <span class="nav__item"><a href="#services">Servicios</a></span>
+        <span class="nav__item"><a href="#cases">Casos</a></span>
+        <span class="nav__item"><a href="#pricing">Planes</a></span>
+        <span class="nav__item"><a href="#blog">Blog</a></span>
+        <span class="nav__item"><a href="#contact">Contacto</a></span>
+      </nav>
+
+      <div class="cta">
+        <a class="btn btn--ghost" href="#pricing">Ver planes</a>
+        <a class="btn btn--primary" href="#contact">Pedir demo</a>
+      </div>
+    </div>
   </header>
 
-  <main id="contenido">
-    <section id="sobre-mi" aria-labelledby="titulo-sobre-mi">
-      <h2 id="titulo-sobre-mi">Sobre mí</h2>
-
-      <article>
-        <h3>Resumen</h3>
-        <p>
-          Soy desarrollador de software con enfoque en backend (principalmente PHP y MySQL) y me gusta construir
-          sistemas que automatizan procesos y reducen fricción. También soy docente universitario, así que diseño
-          actividades y rúbricas claras para que los estudiantes aprendan “haciendo”.
-        </p>
-      </article>
-
-      <article>
-        <h3>En qué estoy trabajando</h3>
-        <ul>
-          <li>Plataformas web de formación y gestión (LMS y módulos administrativos).</li>
-          <li>Automatización de reportes y herramientas internas para optimizar operación.</li>
-          <li>Integración de servicios: almacenamiento tipo objeto, dominios y envío de correos transaccionales.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="habilidades" aria-labelledby="titulo-habilidades">
-      <h2 id="titulo-habilidades">Habilidades</h2>
-
-      <article>
-        <h3>Tecnologías principales</h3>
-        <ul>
-          <li>Backend: PHP (8.x), APIs REST, autenticación y manejo de datos.</li>
-          <li>Base de datos: MySQL (diseño, consultas, optimización básica).</li>
-          <li>Frontend: HTML semántico (CSS se agrega después 😉).</li>
-        </ul>
-      </article>
-
-      <article>
-        <h3>Herramientas y prácticas</h3>
-        <ul>
-          <li>Git / GitHub (flujo de trabajo por commits).</li>
-          <li>Automatización y scripts (Python para tareas prácticas).</li>
-          <li>Infra ligera y despliegues (dominios, configuración y servicios web).</li>
-        </ul>
-      </article>
-
-      <aside aria-label="Dato rápido">
-        <h3>Dato rápido</h3>
-        <p>
-          Me importa que el código sea mantenible: nombres claros, estructura limpia y decisiones justificadas.
-        </p>
-      </aside>
-    </section>
-
-    <section id="proyectos" aria-labelledby="titulo-proyectos">
-      <h2 id="titulo-proyectos">Proyectos</h2>
-
-      <article>
-        <header>
-          <h3>Plataforma de capacitación / LMS</h3>
-          <p>Administración de eventos, cursos y notificaciones.</p>
-        </header>
-        <ul>
-          <li>Gestión de registros y comunicación con asistentes.</li>
-          <li>Organización de contenidos y módulos por cliente.</li>
-          <li>Mejoras de flujo con calendarios y archivos de agenda (.ics).</li>
-        </ul>
-      </article>
-
-      <article>
-        <header>
-          <h3>Herramientas internas y reportes</h3>
-          <p>Automatización para ahorrar tiempo y evitar errores repetitivos.</p>
-        </header>
-        <ul>
-          <li>Generación de reportes a partir de hojas de cálculo.</li>
-          <li>Procesos semi-automáticos para operaciones y seguimiento.</li>
-          <li>Formatos consistentes para análisis y toma de decisiones.</li>
-        </ul>
-      </article>
-
-      <article>
-        <header>
-          <h3>Infra y almacenamiento</h3>
-          <p>Configuración de buckets, dominios y acceso seguro a archivos.</p>
-        </header>
-        <ul>
-          <li>Uso de almacenamiento tipo objeto y dominios personalizados.</li>
-          <li>Restricción de acceso y enlaces temporales para recursos.</li>
-          <li>Separación de entornos: pruebas vs producción.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="experiencia" aria-labelledby="titulo-experiencia">
-      <h2 id="titulo-experiencia">Experiencia</h2>
-
-      <article>
-        <h3>Desarrollo de software (Backend / Web)</h3>
-        <ul>
-          <li>Diseño e implementación de módulos web orientados a procesos.</li>
-          <li>Mantenimiento y mejoras continuas en sistemas existentes.</li>
-          <li>Integraciones con servicios externos (correo, storage, etc.).</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="docencia" aria-labelledby="titulo-docencia">
-      <h2 id="titulo-docencia">Docencia</h2>
-
-      <article>
-        <h3>Enfoque de enseñanza</h3>
-        <p>
-          Me gusta que el aprendizaje sea práctico: ejercicios por tema, entregables semanales y retroalimentación
-          clara con rúbrica (criterio, puntaje y comentario).
-        </p>
-      </article>
-
-      <article>
-        <h3>Modelo de clase</h3>
-        <ul>
-          <li>Activación: pregunta o reto rápido.</li>
-          <li>Conceptos clave: lo esencial y aplicable.</li>
-          <li>Práctica guiada: construcción paso a paso.</li>
-          <li>Reto: evidencia concreta de aprendizaje.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="contacto" aria-labelledby="titulo-contacto">
-      <h2 id="titulo-contacto">Contacto</h2>
-
-      <p>Si quieres contactarme, aquí tienes opciones:</p>
-      <ul>
-        <li><a href="mailto:edgaripatricio@tecmilenio.mx">edgaripatricio@tecmilenio.mx</a></li>
-        <li><a href="#contenido">Volver arriba</a></li>
-      </ul>
-
-      <form aria-label="Formulario de contacto" action="#" method="post">
-        <fieldset>
-          <legend>Escríbeme</legend>
-
-          <p>
-            <label for="nombre">Nombre</label><br />
-            <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+  <main class="hero" id="home">
+    <conetainer class="container">
+      <grid class="hero__grid">
+        <article class="hero__copy">
+          <span class="badge">Nueva versión 2026</span>
+          <h1 class="hero__title">Plataformas web rápidas, seguras y escalables</h1>
+          <p class="hero__subtitle">
+            Construimos productos digitales para empresas tech: portales, dashboards, herramientas internas y automatización de procesos.
           </p>
 
-          <p>
-            <label for="email">Correo</label><br />
-            <input id="email" name="email" type="email" autocomplete="email" required />
-          </p>
+          <subheader class="hero__actions">
+            <a class="btn btn--primary" href="#contact">Agenda una demo</a>
+            <a class="btn btn--ghost" href="#cases">Ver resultados</a>
+          </subheader>
 
-          <p>
-            <label for="mensaje">Mensaje</label><br />
-            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-          </p>
+          <description class="hero__stats">
+            <div class="stat">
+              <div class="stat__num">+120</div>
+              <div class="stat__label">proyectos</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">99.9%</div>
+              <div class="stat__label">uptime</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">24/7</div>
+              <div class="stat__label">soporte</div>
+            </div>
+          </description>
+        </article>
 
-          <button type="submit">Enviar</button>
-        </fieldset>
-      </form>
-    </section>
+        <aside class="hero__card">
+          <div class="card">
+            <h2 class="card__title">Demo rápida</h2>
+            <p class="card__desc">Regístrate para ver el panel de ejemplo y recibir una guía de implementación.</p>
+
+            <form class="form">
+              <div class="form__row">
+                <div class="form__label">Nombre</div>
+                <div><input class="input" type="text" placeholder="Tu nombre" /></div>
+              </div>
+              <div class="form__row">
+                <div class="form__label">Correo</div>
+                <div><input class="input" type="email" placeholder="tu@correo.com" /></div>
+              </div>
+              <div class="form__row">
+                <div class="form__label">Empresa</div>
+                <div><input class="input" type="text" placeholder="Nombre de la empresa" /></div>
+              </div>
+              <div class="form__row">
+                <button class="btn btn--primary btn--full" type="button">Solicitar acceso</button>
+              </div>
+              <p class="form__hint">Al enviar aceptas recibir información relacionada. Puedes cancelar cuando quieras.</p>
+            </form>
+          </div>
+        </aside>
+      </grid>
+    </conetainer>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Edgar. Todos los derechos reservados.</p>
-    <p>
-      <small>Hecho con HTML semántico. Mañana lo vestimos con CSS.</small>
-    </p>
+  <section class="section" id="services">
+    <div class="container">
+      <header class="section__head">
+        <h1 class="section__kicker">Servicios</h1>
+        <h2 class="section__title">Lo que construimos para equipos tech</h2>
+        <p class="section__desc">Soluciones centradas en rendimiento, mantenimiento y claridad del producto.</p>
+      </header>
+
+      <cards class="cards">
+        <article class="card card--soft">
+          <h2 class="card__title">Desarrollo Web</h2>
+          <p class="card__desc">Landing, portales internos, paneles administrativos y apps web.</p>
+          <div class="pill-list">
+            <span class="pill">SEO básico</span>
+            <span class="pill">Accesibilidad</span>
+            <span class="pill">Rendimiento</span>
+          </div>
+        </article>
+
+        <article class="card card--soft">
+          <h2 class="card__title">Automatización</h2>
+          <p class="card__desc">Reportes, flujos y herramientas para reducir tareas repetitivas.</p>
+          <div class="pill-list">
+            <span class="pill">ETL</span>
+            <span class="pill">Dashboards</span>
+            <span class="pill">Integraciones</span>
+          </div>
+        </article>
+
+        <article class="card card--soft">
+          <h2 class="card__title">Soporte y mantenimiento</h2>
+          <p class="card__desc">Corrección, mejoras y evolución de sistemas existentes.</p>
+          <div class="pill-list">
+            <span class="pill">Monitoreo</span>
+            <span class="pill">Backups</span>
+            <span class="pill">Hardening</span>
+          </div>
+        </article>
+      </cards>
+    </div>
+  </div>
+
+  <section class="section section--alt" id="cases">
+    <div class="container">
+      <header class="section__head">
+        <h1 class="section__kicker">Casos de éxito</h1>
+        <h2 class="section__title">Resultados medibles</h2>
+        <p class="section__desc">Ejemplos de proyectos donde la claridad y estructura mejoraron producto y conversión.</p>
+      </header>
+
+      <div class="cases">
+        <article class="case">
+          <h3 class="case__title">Portal de clientes</h3>
+          <p class="case__desc">Refactor de estructura + nuevo diseño. Mejor navegación y contenido más “entendible” para buscadores.</p>
+          <div class="case__meta">
+            <span class="pill">+28% registros</span>
+            <span class="pill">-35% rebote</span>
+          </article>
+        </div>
+
+        <article class="case">
+          <h3 class="case__title">Dashboard operativo</h3>
+          <p class="case__desc">Estandarización de pantallas y componentes. Mejor legibilidad y menor tiempo de capacitación.</p>
+          <div class="case__meta">
+            <span class="pill">-18% tickets</span>
+            <span class="pill">+22% eficiencia</span>
+          </div>
+        </article>
+
+        <article class="case">
+          <h3 class="case__title">Sitio marketing tech</h3>
+          <p class="case__desc">Headings correctos, metadatos y contenido ordenado. Mejor indexación y páginas más rápidas.</p>
+          <div class="case__meta">
+            <span class="pill">+40% tráfico</span>
+            <span class="pill">+12% leads</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="testimonials">
+        <blockquote class="quote">
+          <p class="quote__text">“La nueva estructura hizo más fácil encontrar información y mejoró cómo nos ven en Google.”</p>
+          <cite class="quote__by">— Equipo de Producto</cite>
+        </blockquote>
+        <blockquote class="quote">
+          <p class="quote__text">“Se ve más profesional, la gente entiende qué hacemos en 10 segundos.”</p>
+          <cite class="quote__by">— Marketing</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <header class="container">
+      <div class="section__head">
+        <h1 class="section__kicker">Planes</h1>
+        <h3 class="section__title">Escoge un plan</h3>
+      </div>
+
+      <div class="pricing">
+        <article class="plan">
+          <h1 class="plan__name">Starter</h1>
+          <h3 class="plan__price">$199</h3>
+          <p class="plan__desc">Para una landing + SEO básico</p>
+          <ul class="plan__list">
+            <li>1 sitio</li>
+            <li>Soporte básico</li>
+            <li>Checklist SEO</li>
+          </ul>
+          <a class="btn btn--ghost btn--full" href="#contact">Elegir</a>
+        </article>
+
+        <article class="plan plan--featured">
+          <h1 class="plan__name">Pro</h1>
+          <h3 class="plan__price">$499</h3>
+          <p class="plan__desc">Para portales y paneles internos</p>
+          <ul class="plan__list">
+            <li>3 módulos</li>
+            <li>Soporte prioritario</li>
+            <li>Optimización de contenido</li>
+          </ul>
+          <a class="btn btn--primary btn--full" href="#contact">Elegir</a>
+        </article>
+
+        <article class="plan">
+          <h1 class="plan__name">Enterprise</h1>
+          <h3 class="plan__price">$999</h3>
+          <p class="plan__desc">Para sistemas a medida</p>
+          <ul class="plan__list">
+            <li>Integraciones</li>
+            <li>Monitoreo</li>
+            <li>Hardening</li>
+          </ul>
+          <a class="btn btn--ghost btn--full" href="#contact">Hablar</a>
+        </article>
+      </div>
+    </header>
+  </section>
+
+  <section class="section section--alt" id="blog">
+    <div class="container">
+      <header class="section__head">
+        <h1 class="section__kicker">Blog</h1>
+        <h2 class="section__title">Lecturas rápidas</h2>
+       
+      </header>
+
+      <article class="posts">
+        <div class="post">
+          <h3 class="post__title">Cómo estructurar una landing para claridad</h3>
+          <p class="post__desc">Orden visual + headings correctos = mensajes claros para usuarios y buscadores.</p>
+          <p class="post__meta">5 min • UX/SEO</p>
+        </div>
+        <div class="post">
+          <h3 class="post__title">Errores comunes con divs y spans</h3>
+          <p class="post__desc">Cuando todo es un div, nadie entiende nada (ni tu yo del futuro).</p>
+          <p class="post__meta">6 min • HTML</p>
+        </div>
+        <div class="post">
+          <h3 class="post__title">CSS: menos reglas, mejor resultado</h3>
+          <p class="post__desc">Aprende a estilizar con intención: jerarquía, espaciado y contraste.</p>
+          <p class="post__meta">4 min • CSS</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+ <section class="section" id="contact">
+  <container class="container">
+    <header class="section__head">
+      <h1 class="section__kicker">Contacto</h1>
+      <h2 class="section__title">Hablemos</h2>
+    </header> <div class="contact">
+      <aside class="contact__left">
+        <div class="card card--soft">
+          <h1 class="card__title">Información</h1>
+          <h4 class="card__desc">Horario: Lun–Vie 9:00–18:00</h4>
+          <h4 class="card__desc">Ubicación: Remoto / México</h4>
+          <h4 class="card__desc">Correo: contacto@nexora.example</h4>
+        </div> </aside>
+
+      <aside class="contact__right">
+        <div class="card">
+          <h1 class="card__title">Escríbenos</h1>
+          <form class="form">
+            <div class="form__row">
+              <h4 class="form__label">Nombre</h4>
+              <div><input class="input" type="text" placeholder="Tu nombre" /></div>
+            </div>
+            <div class="form__row">
+              <h4 class="form__label">Correo</h4>
+              <div><input class="input" type="email" placeholder="tu@correo.com" /></div>
+            </div>
+            <div class="form__row">
+              <h4 class="form__label">Mensaje</h4>
+              <div><textarea class="input" rows="5" placeholder="Cuéntanos lo que necesitas"></textarea></div>
+            </div>
+            <div class="form__row">
+              <button class="btn btn--primary btn--full" type="button">Enviar</button>
+            </div>
+          </form> </div> </aside>
+    </div> </container>
+</section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">Nexora Labs</div>
+          <p class="footer__text">Creamos software para equipos que quieren velocidad y claridad.</p>
+        </div>
+        <div>
+          <h4 class="footer__title">Secciones</h4>
+          <ul class="footer__links">
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#cases">Casos</a></li>
+            <li><a href="#pricing">Planes</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__title">Redes</div>
+          <ul class="footer__links">
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">X</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 Nexora Labs</li>
+        <p>Hecho para práctica académica por jecc. </p>
+        <h20>hellfire lives</h20>
+      </div>
+    </div>
   </footer>
+
+  <link rel="stylesheet" href="styles.css" />
 </body>
 </html>
