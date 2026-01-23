@@ -1,0 +1,199 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: #000000; 
+    color: #f5f5f7; 
+}
+
+
+.main-header {
+    background-color: #1c1c1e;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #333; 
+}
+
+.main-header h1 {
+    margin: 0;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 900px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* FILTROS */
+.filters {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.filters button {
+    margin: 5px;
+    padding: 8px 16px;
+    background-color: #2c2c2e; 
+    color: #f5f5f7;
+    border: 1px solid #444;
+    border-radius: 20px; 
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s; 
+}
+
+.filters button:hover {
+    background-color: #0071e3; 
+    border-color: #0071e3;
+    color: white;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; 
+}
+
+
+.card {
+    background-color: #1c1c1e; 
+    border: 1px solid #333;
+    border-radius: 12px; 
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.card img {
+    height: 120px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box; 
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin: 10px 0;
+    font-weight: 400;
+    color: #f5f5f7;
+}
+
+.card .category {
+    font-size: 12px;
+    color: #86868b; 
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f5f5f7; 
+    margin: 10px 0;
+}
+
+/* BOTÓN VER DETALLES */
+.btn-detail {
+    background-color: #0071e3; 
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+}
+
+.btn-detail:hover {
+    background-color: #0077ed; 
+}
+
+
+.detail-view {
+    position: fixed; 
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.detail-content {
+    background-color: #1c1c1e;
+    color: #f5f5f7;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 18px;
+    border: 1px solid #333;
+    position: relative;
+    text-align: center;
+   
+}
+
+.detail-content img {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.detail-content h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.detail-content p {
+    color: #f4f4fb;
+    font-size: 14px;
+    line-height: 1.4;
+    
+}
+
+.detail-content .price-big {
+    font-size: 24px;
+    color: #cfe7ff; /* Precio destacado */
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.hide {
+    display: none; 
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #3a3a3c; 
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    background: #555;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    padding: 30px;
+    background-color: #000000;
+    border-top: 1px solid #333;
+    color: #86868b;
+    font-size: 12px;
+}
