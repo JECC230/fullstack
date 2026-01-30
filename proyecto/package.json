@@ -1,0 +1,14 @@
+{
+  "name": "smarthome-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2" 
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
