@@ -1,7 +1,8 @@
 // Base de datos simulada en memoria (Array)
 let listaProductos = [
-    { id: 1, nombre: "Leche Entera", categoria: "Lácteos", stock: 2, stockMinimo: 1 },
-    { id: 2, nombre: "Arroz", categoria: "Granos", stock: 0, stockMinimo: 2 }
+    //  'activo: true' a los datos iniciales
+    { id: 1, nombre: "Leche Entera", categoria: "Lácteos", stock: 2, stockMinimo: 1, activo: true },
+    { id: 2, nombre: "Arroz", categoria: "Granos", stock: 0, stockMinimo: 2, activo: true }
 ];
 
 // Generador simple de IDs
@@ -11,12 +12,15 @@ const generarId = () => {
 };
 
 // 1. OBTENER TODOS (GET)
-// Código 200: Todo salió bien
+// REGLA : Mostrar solo productos activos
 export const obtenerProductos = (req, res) => {
+    // Filtramos solo los que están activos
+    const activos = listaProductos.filter(p => p.activo === true);
+    
     res.status(200).json({
         mensaje: "Inventario recuperado exitosamente",
-        total: listaProductos.length,
-        datos: listaProductos
+        total: activos.length,
+        datos: activos
     });
 };
 
@@ -25,15 +29,14 @@ export const obtenerProductoPorId = (req, res) => {
     const id = parseInt(req.params.id);
     const producto = listaProductos.find(p => p.id === id);
 
-    // ERROR 404: Si el producto no existe en el array
-    if (!producto) {
+    // REGLA: Si no existe o está inactivo, retornamos 404
+    if (!producto || !producto.activo) {
         return res.status(404).json({ 
             error: "No encontrado",
-            mensaje: `El producto con ID ${id} no existe en el inventario.`
+            mensaje: `El producto con ID ${id} no existe o está inactivo.`
         });
     }
 
-    // ÉXITO 200
     res.status(200).json({ 
         mensaje: "Producto encontrado", 
         datos: producto 
@@ -41,25 +44,24 @@ export const obtenerProductoPorId = (req, res) => {
 };
 
 // 3. CREAR PRODUCTO (POST)
+// REGLA : 'activo' inicia siempre en true (automático)
 export const crearProducto = (req, res) => {
     const cuerpo = req.body;
 
-    // ERROR 400: Validación si el cuerpo está vacío o es un objeto vacío {}
     if (!cuerpo || Object.keys(cuerpo).length === 0) {
-        return res.status(400).json({ 
-            error: "Solicitud incorrecta",
-            mensaje: "El cuerpo de la petición no puede estar vacío." 
-        });
+        return res.status(400).json({ error: "Bad Request", mensaje: "Cuerpo vacío" });
     }
 
     const { nombre, categoria, stock, stockMinimo } = cuerpo;
 
-    // ERROR 400: Validación de campos obligatorios
+    // Validaciones
     if (!nombre || !categoria) {
-        return res.status(400).json({ 
-            error: "Datos incompletos",
-            mensaje: "Debes enviar obligatoriamente 'nombre' y 'categoria'." 
-        });
+        return res.status(400).json({ error: "Bad Request", mensaje: "Faltan nombre o categoria" });
+    }
+    
+    // REGLA : Validar que stock sea >= 0
+    if (stock < 0) {
+        return res.status(400).json({ error: "Bad Request", mensaje: "El stock no puede ser negativo" });
     }
 
     const nuevoProducto = {
@@ -67,12 +69,12 @@ export const crearProducto = (req, res) => {
         nombre,
         categoria,
         stock: stock || 0,
-        stockMinimo: stockMinimo || 1
+        stockMinimo: stockMinimo || 1,
+        activo: true 
     };
 
     listaProductos.push(nuevoProducto);
 
-    // ÉXITO 201: 'Created' (Específico para cuando se crea algo nuevo)
     res.status(201).json({
         mensaje: "Producto creado exitosamente",
         datos: nuevoProducto
@@ -83,29 +85,29 @@ export const crearProducto = (req, res) => {
 export const actualizarProducto = (req, res) => {
     const id = parseInt(req.params.id);
     const cuerpo = req.body;
-
-    // Buscamos el índice en el array
     const indice = listaProductos.findIndex(p => p.id === id);
 
-    // ERROR 404: Si el ID no existe
+    // REGLA : Validaciones específicas
     if (indice === -1) {
-        return res.status(404).json({ 
-            error: "No encontrado",
-            mensaje: `No se puede actualizar. El producto con ID ${id} no existe.` 
-        });
+        return res.status(404).json({ error: "Not Found", mensaje: "Producto no encontrado" });
     }
 
-    // ERROR 400: Si intentan actualizar pero no envían datos
+    // Si está inactivo, devolver 403 (Prohibido) o 400
+    if (listaProductos[indice].activo === false) {
+        return res.status(403).json({ error: "Forbidden", mensaje: "No se puede editar un producto inactivo" });
+    }
+
     if (!cuerpo || Object.keys(cuerpo).length === 0) {
-        return res.status(400).json({ 
-            error: "Solicitud incorrecta",
-            mensaje: "No enviaste datos para actualizar." 
-        });
+        return res.status(400).json({ error: "Bad Request", mensaje: "Sin datos para actualizar" });
     }
 
     const { nombre, categoria, stock, stockMinimo } = cuerpo;
 
-    // Actualizamos manteniendo los datos anteriores si no envían nuevos
+    // Validación de stock negativo en actualización
+    if (stock !== undefined && stock < 0) {
+        return res.status(400).json({ error: "Bad Request", mensaje: "El stock no puede ser negativo" });
+    }
+
     listaProductos[indice] = {
         ...listaProductos[indice],
         nombre: nombre || listaProductos[indice].nombre,
@@ -114,34 +116,34 @@ export const actualizarProducto = (req, res) => {
         stockMinimo: stockMinimo !== undefined ? stockMinimo : listaProductos[indice].stockMinimo
     };
 
-    // ÉXITO 200
     res.status(200).json({
-        mensaje: "Producto actualizado correctamente",
+        mensaje: "Producto actualizado",
         datos: listaProductos[indice]
     });
 };
 
-// 5. ELIMINAR PRODUCTO (DELETE)
+// 5. ELIMINAR PRODUCTO (DELETE) - LOGICA "SOFT DELETE"
+// REGLA: NO borrar del arreglo, solo cambiar activo = false
 export const eliminarProducto = (req, res) => {
     const id = parseInt(req.params.id);
-    
-    // Verificamos si existe antes de intentar borrar
-    const existe = listaProductos.some(p => p.id === id);
+    const indice = listaProductos.findIndex(p => p.id === id);
 
-    // ERROR 404: Si no existe
-    if (!existe) {
-        return res.status(404).json({ 
-            error: "No encontrado",
-            mensaje: `No se puede eliminar. El producto con ID ${id} no existe.` 
-        });
+    // Si no existe el ID
+    if (indice === -1) {
+        return res.status(404).json({ error: "Not Found", mensaje: "Producto no encontrado" });
     }
 
-    // Filtramos para borrar
-    listaProductos = listaProductos.filter(p => p.id !== id);
+    // REGLA: Si ya está inactivo, devolver error 400
+    if (listaProductos[indice].activo === false) {
+        return res.status(400).json({ error: "Bad Request", mensaje: "El producto ya estaba inactivo" });
+    }
 
-    // ÉXITO 200
+    //   Borrado Lógico (Soft Delete)
+    listaProductos[indice].activo = false;
+
+    // REGLA : Devolver 204 (No Content) o 200 con mensaje. 
     res.status(200).json({
-        mensaje: "Producto eliminado exitosamente",
-        idEliminado: id
+        mensaje: "Producto desactivado correctamente (Soft Delete)",
+        idDesactivado: id
     });
 };
