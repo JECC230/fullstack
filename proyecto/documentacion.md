@@ -71,4 +71,4 @@ Actualiza un producto existente por su ID.
 Elimina un producto del inventario por su ID.
 
 Enlace Postman
-https://juanesteban2823-8230577.postman.co/workspace/JECC's-Workspace~8fed328e-2d92-488a-8e0f-3813f3c065bd/request/51906937-6c0be5f5-6e1a-4d73-8cfb-5880867ade7f
+https://juanesteban2823-8230577.postman.co/workspace/JECC's-Workspace~8fed328e-2d92-488a-8e0f-3813f3c065bd/collection/51906937-c6145f2e-eb03-4e04-88c0-11b26c22c97c?action=share&creator=51906937
